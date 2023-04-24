@@ -19,6 +19,11 @@ export default defineType({
       validation: (Rule) => Rule.max(200),
     },
     {
+      name: "Image",
+      type: "image",
+      title: "Image of the Restaurant",
+    },    
+    {
       name: "lat",
       type: "number",
       title: "Latitude of the Restaurant",
@@ -57,7 +62,5 @@ export default defineType({
       title: "Dishes",
       of: [{ type: "reference", to: [{ type: "dish" }] }],
     },
-
-
   ],   
 })

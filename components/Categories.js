@@ -1,8 +1,26 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ScrollView } from 'react-native'
 import CategoriesCard from './CategoriesCard'
 const Categories = () => {
+  // const [categories, setCategories] = useState([]);
+
+//   useEffect(() => {
+//   mysanityClient.fetch(`
+//   *[_type == "featured" && _id == $id] {
+//       ...,
+//       restaurants[]->{
+//       ...,
+//       dishes[]->,
+//         type->{
+//           name
+//         } 
+//       },
+//   }[0]`, {id}).then(data => {
+//       setRestaurants(data?.restaurants);
+//   });
+// }, []);
+
   return (
     <ScrollView
     contentContainerStyle={{
