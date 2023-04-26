@@ -13,9 +13,9 @@ import FeaturedRow from '../components/FeaturedRow'
 import mysanityClient from '../sanity'
 
 import { setupURLPolyfill } from 'react-native-url-polyfill';
-import {isMobile} from 'react-device-detect';
-console.log(isMobile)
-if(isMobile) {
+import { Platform } from 'react-native';
+console.log(Platform.OS)
+if(Platform.OS === 'android' || Platform.OS === 'ios') {
 setupURLPolyfill();
 }
 const HomeScreen = () => {
