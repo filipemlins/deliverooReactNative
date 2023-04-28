@@ -18,7 +18,7 @@ const RestaurantCard = ({
     lat
 }) => {
 
-    // console.log(urlFor(imgURL).url())
+  console.log(title)
   const navigation = useNavigation();
 
   return (
@@ -39,6 +39,7 @@ const RestaurantCard = ({
         }}
     
     className="bg-white mr-3 shadow">
+      
       
         <Image
             source={{
