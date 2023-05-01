@@ -9,6 +9,8 @@ import {UserIcon,
     AdjustmentsVerticalIcon,
     StarIcon,
 } from "react-native-heroicons/solid"
+import {MapPinIcon } from  "react-native-heroicons/outline"
+
 
 import { QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
 
@@ -63,8 +65,17 @@ const RestaurantScreen = () => {
                             <Text className="text-xs text-gray-500">
                                 <Text className="text-green-500">{rating}</Text> • {genre.title}
                             </Text>
-
                         </View>
+
+                        <View className='flex-row space-x-2 my-1'>
+                        <View className='flex-row items-center space-x-1'>
+                            <MapPinIcon size={22} color="gray" opacity={0.4}/>
+                            <Text className="text-xs text-gray-500">
+                                <Text className="text-green-500">Nearby</Text> • {address}
+                            </Text>
+                        </View>
+                        </View>
+
                     </View>
                 </View>
             </View>        
