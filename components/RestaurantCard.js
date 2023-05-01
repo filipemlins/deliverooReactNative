@@ -2,9 +2,8 @@ import { View, Text, TouchableOpacity, Image, Button } from 'react-native'
 import React from 'react'
 import {StarIcon} from  "react-native-heroicons/solid"
 import {MapPinIcon } from  "react-native-heroicons/outline"
-import { urlFor } from '../sanity'
 import { useNavigation } from '@react-navigation/native'
-
+import { urlFor } from '../sanity'
 const RestaurantCard = ({
     id,
     imgURL,
@@ -18,7 +17,7 @@ const RestaurantCard = ({
     lat
 }) => {
 
-  console.log(title)
+   console.log("Genre Type: " + genre.title)
   const navigation = useNavigation();
 
   return (
@@ -53,7 +52,7 @@ const RestaurantCard = ({
             <View className="flex-row space-x-1 items-center">
                 <StarIcon color="green" opacity={0.5} size={22}/>
                 <Text className="text-xs text-gray-500">
-                    <Text className="text-green-500">{rating}</Text> • {genre}
+                    <Text className="text-green-500">{rating}</Text> • {genre.title}
 
                 </Text>
             </View>

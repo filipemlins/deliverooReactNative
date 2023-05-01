@@ -1,6 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import dish from './dish'
-
+import category from './category'
 export default defineType({
   name: 'restaurant',
   title: 'Restaurant',
@@ -19,7 +18,7 @@ export default defineType({
       validation: (Rule) => Rule.max(200),
     },
     {
-      name: "Image",
+      name: "image",
       type: "image",
       title: "Image of the Restaurant",
     },    
@@ -50,7 +49,7 @@ export default defineType({
       ,
     },
     {
-      name: "type",
+      name: "genderType",
       title: "Category",
       validation: (Rule) => Rule.required(),
       type: "reference",

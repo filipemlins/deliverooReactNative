@@ -4,6 +4,7 @@ import React, { useEffect, useLayoutEffect, useState } from 'react'
 import {ArrowRightIcon} from  "react-native-heroicons/outline"
 import RestaurantCard from './RestaurantCard'
 import mysanityClient from '../sanity'
+import { urlFor } from '../sanity'
 
 
 const FeaturedRow = ({id, title, description }) => {
@@ -15,11 +16,15 @@ const FeaturedRow = ({id, title, description }) => {
       mysanityClient.fetch(`
       *[_type == "featured" && _id == $id] {
           ...,
-          restaurants[]->{
+          restaurants[]->{           
           ...,
           dishes[]->,
             type->{
               name
+            },
+            genderType->,
+            type->{
+              title
             } 
           },
       }[0]`, {id}).then(data => {
@@ -27,7 +32,7 @@ const FeaturedRow = ({id, title, description }) => {
       });
   }, []);
 
-  console.log(restaurants[0])
+  console.log(restaurants)
 
   return (
     <View>
@@ -47,8 +52,8 @@ const FeaturedRow = ({id, title, description }) => {
      className="pt-4"
      >
       {/* RestaurantCards */}
-      
       {restaurants?.map(restaurant =>(
+        
         <RestaurantCard
         key={restaurant._id}
         id={restaurant._id}
@@ -56,14 +61,17 @@ const FeaturedRow = ({id, title, description }) => {
         address={restaurant.address}
         title={restaurant.name}
         rating={restaurant.rating}
-        genre={restaurant.genre}
+        genre={restaurant.genderType}
         short_description={restaurant.short_description}
         dishes={restaurant.dishes}
         long={restaurant.long}
         lat={restaurant.lat}
     />
-      ))}
+      ))
       
+      }
+      
+   
 
      </ScrollView>
     </View>

@@ -14,7 +14,7 @@ import mysanityClient from '../sanity'
 
 import { setupURLPolyfill } from 'react-native-url-polyfill';
 import { Platform } from 'react-native';
-console.log(Platform.OS)
+// console.log(Platform.OS)
 if(Platform.OS === 'android' || Platform.OS === 'ios') {
 setupURLPolyfill();
 }
@@ -94,8 +94,7 @@ const HomeScreen = () => {
                 key={category._id}
                 id={category._id}
                 title={category.name}
-                description={category.short_description
-                }
+                description={category.short_description}
             />
             ))}
 

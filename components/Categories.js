@@ -2,7 +2,7 @@
 import { ScrollView } from 'react-native'
 import CategoriesCard from './CategoriesCard'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
-import mysanityClient, { urlFor } from '../sanity'
+import mysanityClient from '../sanity'
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -14,7 +14,7 @@ const Categories = () => {
       setCategories(data);
   });
 }, []);
-  console.log(categories)
+   console.log(categories)
 
   return (
     <ScrollView
@@ -28,7 +28,7 @@ const Categories = () => {
       {categories.map((category) => (
          <CategoriesCard
           key={category._id}
-          imgUrl={urlFor(category.image).url()}
+          imgUrl={category.image}
           title={category.title}/>
       ))}
       {/* Categories Card */}

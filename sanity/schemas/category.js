@@ -2,7 +2,7 @@ import {defineType} from 'sanity'
 
 export default defineType({
   name: 'category',
-  title: 'Menu Category',
+  title: 'Category',
   type: 'document',
   fields: [
   {
