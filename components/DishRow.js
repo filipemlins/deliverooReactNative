@@ -1,12 +1,24 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import Currency from "react-currency-formatter";
-import React from "react";
+import React, {useState} from "react";
+
 import { urlFor } from "../sanity";
+
+import {MinusCircleIcon, PlusCircleIcon} from "react-native-heroicons/solid";
+
 
 const DishRow = ({ id, name, description, price, image }) => {
   // console.log(id, name, description, price)
+  const [isPressed, setIsPressed] = useState(false);
+  
   return (
-    <TouchableOpacity className="bg-white border p-4 border-gray-200">
+    <>
+    <TouchableOpacity 
+    onPress={() => setIsPressed(!isPressed)}
+    className={`bg-white border p-4 border-gray-200 ${
+        isPressed && "border-b-0"
+       }`}
+       >
       <View className="flex-row">
         <View className="flex-1 pr-2">
           <Text className="text-lg mb-1">{name}</Text>
@@ -28,6 +40,25 @@ const DishRow = ({ id, name, description, price, image }) => {
         </View>
       </View>
     </TouchableOpacity>
+  {isPressed && (
+    <View className="bg-white px-4">
+      <View className="flex-row items-center space-x-2 pb-3 flex-wrap">
+        <TouchableOpacity className="flex-1 flex-row space-x-2 pb-3"> 
+        <MinusCircleIcon 
+        color="#00CCBB"
+        size={40}
+        /> 
+        <Text>0</Text>
+
+        <PlusCircleIcon 
+        color="#00CCBB"
+        size={40}
+        />
+        </TouchableOpacity>
+      </View>
+    </View>
+    )}
+  </>
   );
 };
 
