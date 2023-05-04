@@ -15,6 +15,7 @@ import { ChevronRightIcon, MapPinIcon } from "react-native-heroicons/outline"
 
 import { QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
 import DishRow from '../components/DishRow';
+import BasketIcon from '../components/BasketIcon';
 
 const RestaurantScreen = () => {
     const navigation = useNavigation();
@@ -43,6 +44,9 @@ const RestaurantScreen = () => {
     }, []);
 
     return (
+        <>
+        <BasketIcon />
+        
         <ScrollView>
             <View className="relative">
                 <Image
@@ -92,11 +96,10 @@ const RestaurantScreen = () => {
 
             </View>
 
-            <View>
+            <View className="pb-36">
                 <Text className="font-bold px-4 pt-6 mb-3 text-xl">
                     Menu
                 </Text>
-            </View>
 
             {/* Dishrows */}
             { dishes.map( dish => (
@@ -109,9 +112,13 @@ const RestaurantScreen = () => {
                     image={dish.image}
                 />
             ))}
+            </View>
 
 
         </ScrollView>
+        
+        
+        </>
     )
 };
 
