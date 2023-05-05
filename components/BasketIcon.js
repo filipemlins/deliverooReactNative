@@ -3,15 +3,16 @@ import React from 'react'
 import { selectBasketItems, selectBasketTotal } from '../features/basketSlice'
 import { useSelector, useDispatch } from'react-redux'
 import { useNavigation } from '@react-navigation/native'
-import { TouchableOpacity } from 'react-native-web'
+import { TouchableOpacity } from 'react-native'
 import Currency from "react-currency-formatter";
+
 
 
 const BasketIcon = () => {
  const items = useSelector(selectBasketItems)
  const navigation = useNavigation();
  const basketTotal = useSelector(selectBasketTotal);
-
+//  console.log("enter on basket icon")
  if (items.length === 0) return null;
   return (
     <View className="absolute bottom-10 w-full z-50" >
